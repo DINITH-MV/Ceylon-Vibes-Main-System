@@ -1,6 +1,6 @@
 import React from 'react'
-import HomePageBody from '../../components/Home/Home'
-import Logo from '../../components/Home/Logoooo'
+import HomePageBody from '../../components/Hom/Home'
+import Logo from '../../components/Hom/Logoooo'
 
 export default function Homepagee() {
   return (
