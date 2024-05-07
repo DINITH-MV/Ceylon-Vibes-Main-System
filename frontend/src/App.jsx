@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import TotalBill from "./pages/pay/TotalBill.jsx";
@@ -41,14 +41,8 @@ import SpaAppointmentPage from "./pages/SPA/SpaServiceAppointment.jsx";
 import ClassicalAppointmentPage from "./pages/SPA/ClassicalAppoitment.jsx";
 import ServiceConfirmPage from "./pages/SPA/SpaServiceConfirm.jsx";
 import ServicePaymentPage from "./pages/SPA/SpaPayment.jsx";
-
-import Shop from "./pages/Shop.jsx";
-
-import ShopInside from "./pages/ShopInside.jsx";
-
 import Reports from "./pages/Reports.jsx";
 import axios from "axios";
-
 import "./App.css"
 import { SignedOut } from "@clerk/clerk-react";
 import SignInPage from "./components/Header/sign-in.jsx";
@@ -56,21 +50,22 @@ import UserProfilePage from "./components/Header/user-profile.jsx";
 import BillsComponent from "./components/Bill/deletebills.jsx";
 import PaymentAdmin from "./components/Bill/admindash.jsx";
 import Payhistory from "./components/Bill/Paymenthis.jsx";
-
 import RatingReviewAdminHome from "./components/ratings/RatingReviewAdminHome.jsx";
 import Home from "./pages/Home/Home.jsx";
+import Shop from "./pages/OrganicItems/Shop.jsx";
+import ShopInside from "./pages/OrganicItems/ShopInside.jsx";
 
 const App = () => {
   // console.disableYellowBox = true;
 
-  // const [nuts, setNuts] = useState([]);
-  // const [snacks, setSnacks] = useState([]);
-  // const [sweetners, setSweetners] = useState([]);
-  // const [catagories, setCatagories] = useState([]);
-  // const [offers, setOffers] = useState([]);
-  // const [cart, setCart] = useState([]);
+  const [nuts, setNuts] = useState([]);
+  const [snacks, setSnacks] = useState([]);
+  const [sweetners, setSweetners] = useState([]);
+  const [catagories, setCatagories] = useState([]);
+  const [offers, setOffers] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  // axios.defaults.baseURL = `http://localhost:5012`;
+  axios.defaults.baseURL = `http://localhost:5555`;
 
   const fetchNuts = async () => {
     try {
@@ -156,7 +151,8 @@ const App = () => {
 
     <BrowserRouter>
       <Routes>
-        <Route path="/a" element={<Homepagee />} />
+        
+        <Route path="/Home" element={<Home/>} />
         <Route path="/" element={<RatingReviewAdminHome />} />
         <Route path="/checkout/card" element={<CardPayment />} />
         <Route path="/checkout/slip" element={<UploadSlip />} />
@@ -172,7 +168,11 @@ const App = () => {
         <Route path="/viewslip" element={<ConnectedLinkComponent />} />
         <Route path="/acceptedslips" element={<AcceptedSlips />} />
 
-        <Route path="/Home" element={<Home/>} />
+        <Route path="/Shop" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
+      <Route
+        path="/shopInside/:id"
+        element={<ShopInside nuts={nuts} fetchNuts={fetchNuts} snacks={snacks} fetchSnacks={fetchSnacks} sweetners={sweetners} fetchSweetners={fetchSweetners} fetchCartItems={fetchCart} cartItems={cart} />}
+      />
 
         <Route path="/even" element={<EventPage />} />
         <Route path="/Food" element={<Food />} />
