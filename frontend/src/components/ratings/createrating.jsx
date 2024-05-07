@@ -9,8 +9,8 @@ function RatingReviewForm() {
   const [review, setReview] = useState('');
 
 	const { user } = useUser();
-
   const idd=user.id;
+  
   const handleRatingChange = (value) => {
     setRating(value);
   };

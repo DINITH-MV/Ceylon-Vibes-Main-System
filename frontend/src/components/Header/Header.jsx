@@ -25,7 +25,7 @@ export default function Header({ productsInCart, onQuantityChange, onProductRemo
                 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
                 <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet" />
             </div>
-            <div className="bg-yellow h-[114px] w-[100%] fixed z-20">
+            <div className="bg-[#f5f2ddd1] h-[114px] w-[100%] fixed z-20">
                 <Logo />
                 <ShoppingCart Cart={cart} fetchCart={fetchCart} />
                 <Buttons />

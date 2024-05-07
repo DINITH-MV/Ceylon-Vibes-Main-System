@@ -36,7 +36,7 @@ app.use(express.static("public"));
 // Define routes
 app.get('/', (request, response) => {
     console.log(request);
-    return response.status(234).send('lahiruuu');
+    return response.status(234).send('OK');
 });
 
 app.use('/noti',notirouter)
