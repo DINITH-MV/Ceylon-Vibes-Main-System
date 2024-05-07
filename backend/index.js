@@ -12,6 +12,7 @@ import artrouter from './routes/articlesRoutes.js';
 import carrouter from './routes/carRoutes.js';
 import rentrouter from './routes/rentRoutes.js';
 import tourRouter from './routes/tourRoute.js';
+import storeRouter from './routes/storeRouter.js';
 import bookingRouter from './routes/bookingRoute copy.js';
 import appoinmentroute from './routes/appointmentsparoute.js';
 import ayurvedicroute from './routes/ayurvedicsparoute.js';
@@ -22,6 +23,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
+app.use(express.static("public")); 
 
 /*app.use(
     cors({
@@ -53,6 +55,7 @@ app.use('/appointmentSpa',appoinmentroute)
 app.use('/classicalSpa',classicalroute)
 app.use('/ratingreviews',ratingReviewRouter)
 app.use('/ayurvedicSPA', ayurvedicroute )
+app.use('/', storeRouter)
 
 // Connect to MongoDB and start the server
 mongoose
