@@ -1,19 +1,7 @@
 import React from "react";
-import GradientOpen from "./Content/GradientOpen.js";
-import HeaderText from "./Content/HeaderText.js";
-import GradientClose from "./Content/GradientClose.js";
-import Header from "./Header/Header.js";
-import GradientOpen2 from "./Content/GradientOpen2.js";
-import GradientClose2 from "./Content/GradientClose2.js";
-import Footer from "../../components/Footer/Footer.jsx";
 import { motion } from "framer-motion";
-import HeaderText1 from "./Content/HeaderText1.js";
-import HeaderText2 from "./Content/HeaderText2.js";
-import HeaderText3 from "./Content/HeaderText3.js";
-import HeaderText4 from "./Content/HeaderText4.js";
-import GradientOpen3 from "./Content/GradientOpen3.js";
-import HeaderText5 from "./Content/HeaderText5.js";
-import HeaderText6 from "@/components/Home/Content/HeaderText6.jsx";
+import Header from "../../components/Home/Header/Header";
+import HeaderText from "../../components/Home/Content/HeaderText";
 
 const Home = () => {
 

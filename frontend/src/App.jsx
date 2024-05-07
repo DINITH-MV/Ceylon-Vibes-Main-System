@@ -50,7 +50,7 @@ import Reports from "./pages/Reports.jsx";
 import axios from "axios";
 
 import "./App.css"
-import {SignedOut } from "@clerk/clerk-react";
+import { SignedOut } from "@clerk/clerk-react";
 import SignInPage from "./components/Header/sign-in.jsx";
 import UserProfilePage from "./components/Header/user-profile.jsx";
 import BillsComponent from "./components/Bill/deletebills.jsx";
@@ -58,6 +58,7 @@ import PaymentAdmin from "./components/Bill/admindash.jsx";
 import Payhistory from "./components/Bill/Paymenthis.jsx";
 
 import RatingReviewAdminHome from "./components/ratings/RatingReviewAdminHome.jsx";
+import Home from "./pages/Home/Home.jsx";
 
 const App = () => {
   // console.disableYellowBox = true;
@@ -155,11 +156,11 @@ const App = () => {
 
     <BrowserRouter>
       <Routes>
-      <Route path="/a" element={<Homepagee />} />
+        <Route path="/a" element={<Homepagee />} />
         <Route path="/" element={<RatingReviewAdminHome />} />
         <Route path="/checkout/card" element={<CardPayment />} />
         <Route path="/checkout/slip" element={<UploadSlip />} />
-        <Route path="/checkout/slip" component={<UploadSlip/>} />
+        <Route path="/checkout/slip" component={<UploadSlip />} />
         <Route path="/success" element={<PaymentSuccess />} />
         <Route path="/uploaded" element={<SlipUploaded />} />
         <Route path="/home" element={<Homepagee />} />
@@ -171,80 +172,81 @@ const App = () => {
         <Route path="/viewslip" element={<ConnectedLinkComponent />} />
         <Route path="/acceptedslips" element={<AcceptedSlips />} />
 
-      
-              <Route path="/even" element={<EventPage />} />
-              <Route path="/Food" element={<Food />} />
-              <Route path="/Festival" element={<Festival/>}/> 
-              <Route path="/Sport" element={<Sport/>}/> 
-              <Route path="/Payment/:id" element={<Payment />} /> 
-           
-              <Route path="/fes3" element={<Festival/>}/> 
-              <Route path="/sport3" element={<Sport/>}/> 
-              <Route path="/music3" element={<EventPage/>}/> 
-              <Route path="/food3" element={<Food/>}/> 
-           
-              <Route path="/fes" element={<Festival/>}/> 
-              <Route path="/sport1" element={<Sport/>}/> 
-              <Route path="/music1" element={<EventPage/>}/> 
-              <Route path="/food1" element={<Food/>}/> 
-           
-              <Route path="/fes2" element={<Festival/>}/> 
-              <Route path="/sport2" element={<Sport/>}/> 
-              <Route path="/music2" element={<EventPage/>}/> 
-              <Route path="/food2" element={<Food/>}/>
-           
-              <Route path="/art1" element={<ArtLandmarks />} />
-              <Route path="/art2" element={<ArtNatWon/>} />
-              <Route path="/art3" element={<ArtCulturalExpr />} />
-              <Route path="/art4" element={<ArtHistorical />} />
+        <Route path="/Home" element={<Home/>} />
 
-              <Route path="/arts" element={<ArticleInter />} />
-              <Route path="/artIn" element={<ArtCatorgeries />} />
-              <Route path="/artLand" element={<ArtLandmarks />} />
-              <Route path="/artNature" element={<ArtNatWon />} />
-              <Route path="/artCulture" element={<ArtCulturalExpr />} />
-              <Route path="/artHistorical" element={<ArtHistorical />} />
-              <Route path="/view-article/:id" element={<ViewArticle />} />
+        <Route path="/even" element={<EventPage />} />
+        <Route path="/Food" element={<Food />} />
+        <Route path="/Festival" element={<Festival />} />
+        <Route path="/Sport" element={<Sport />} />
+        <Route path="/Payment/:id" element={<Payment />} />
 
-              <Route path="/trans" element={<CarRental />} />
-              <Route path="/car" element={<CarRental />} />
-              <Route path="/van" element={<VanRental />} />
-              <Route path="/bus" element={<BusRental />} />
-              <Route path="/Vehicle/:id" element={<VehicalRental />} />
-              {/* <Route path="/vehicle" component={VehicalRental} /> */}
+        <Route path="/fes3" element={<Festival />} />
+        <Route path="/sport3" element={<Sport />} />
+        <Route path="/music3" element={<EventPage />} />
+        <Route path="/food3" element={<Food />} />
 
-              <Route path="/car1" element={<CarRental />} />
-              <Route path="/van1" element={<VanRental />} />
-              <Route path="/bus1" element={<BusRental />} />
-              <Route path="/car2" element={<CarRental />} />
-              <Route path="/van2" element={<VanRental />} />
-              <Route path="/bus2" element={<BusRental />} />
-              <Route path="/Transport" element={<CarRental />} />
+        <Route path="/fes" element={<Festival />} />
+        <Route path="/sport1" element={<Sport />} />
+        <Route path="/music1" element={<EventPage />} />
+        <Route path="/food1" element={<Food />} />
 
-              <Route path="/tour" element={<TourCusHome />} />
-              <Route path='/tours/details/:id' element={<ShowTours />} />
-        
-              
-              {/* SPA Customer-side routes */}
-              <Route path="/SPAhome" element={<SpaHomepage />} />
-              <Route path="/ayurvedic-spa-menu" element={<AyurvedicPage />} />
-              <Route path="/ayurvedic-spa-classical" element={<ClassicalPage />} />
-              <Route path="/appoitment" element={<SpaAppointmentPage />} />
-              <Route path="/appointmentc" element={<ClassicalAppointmentPage />} />
-              <Route path="/service-confirm" element={<ServiceConfirmPage />} />
-              <Route path="/appointment-payment" element={<ServicePaymentPage />} />
-                    
-              {/* <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
+        <Route path="/fes2" element={<Festival />} />
+        <Route path="/sport2" element={<Sport />} />
+        <Route path="/music2" element={<EventPage />} />
+        <Route path="/food2" element={<Food />} />
+
+        <Route path="/art1" element={<ArtLandmarks />} />
+        <Route path="/art2" element={<ArtNatWon />} />
+        <Route path="/art3" element={<ArtCulturalExpr />} />
+        <Route path="/art4" element={<ArtHistorical />} />
+
+        <Route path="/arts" element={<ArticleInter />} />
+        <Route path="/artIn" element={<ArtCatorgeries />} />
+        <Route path="/artLand" element={<ArtLandmarks />} />
+        <Route path="/artNature" element={<ArtNatWon />} />
+        <Route path="/artCulture" element={<ArtCulturalExpr />} />
+        <Route path="/artHistorical" element={<ArtHistorical />} />
+        <Route path="/view-article/:id" element={<ViewArticle />} />
+
+        <Route path="/trans" element={<CarRental />} />
+        <Route path="/car" element={<CarRental />} />
+        <Route path="/van" element={<VanRental />} />
+        <Route path="/bus" element={<BusRental />} />
+        <Route path="/Vehicle/:id" element={<VehicalRental />} />
+        {/* <Route path="/vehicle" component={VehicalRental} /> */}
+
+        <Route path="/car1" element={<CarRental />} />
+        <Route path="/van1" element={<VanRental />} />
+        <Route path="/bus1" element={<BusRental />} />
+        <Route path="/car2" element={<CarRental />} />
+        <Route path="/van2" element={<VanRental />} />
+        <Route path="/bus2" element={<BusRental />} />
+        <Route path="/Transport" element={<CarRental />} />
+
+        <Route path="/tour" element={<TourCusHome />} />
+        <Route path='/tours/details/:id' element={<ShowTours />} />
+
+
+        {/* SPA Customer-side routes */}
+        <Route path="/SPAhome" element={<SpaHomepage />} />
+        <Route path="/ayurvedic-spa-menu" element={<AyurvedicPage />} />
+        <Route path="/ayurvedic-spa-classical" element={<ClassicalPage />} />
+        <Route path="/appoitment" element={<SpaAppointmentPage />} />
+        <Route path="/appointmentc" element={<ClassicalAppointmentPage />} />
+        <Route path="/service-confirm" element={<ServiceConfirmPage />} />
+        <Route path="/appointment-payment" element={<ServicePaymentPage />} />
+
+        {/* <Route path="/" element={<Shop catagories={catagories} fetchCatagories={fetchCatagories} offers={offers} fetchOffers={fetchOffers} />} />
       <Route path="/reports" element={<Reports />} />
       <Route
         path="/shopInside/:id"
         element={<ShopInside nuts={nuts} fetchNuts={fetchNuts} snacks={snacks} fetchSnacks={fetchSnacks} sweetners={sweetners} fetchSweetners={fetchSweetners} fetchCartItems={fetchCart} cartItems={cart} />}
       /> */}
-      <Route path="/sign-in" element={<SignInPage />} />
-      <Route path="/sign-up" element={<SignedOut />} />
-      <Route path="/profile" element={<UserProfilePage />} /> 
+        <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/sign-up" element={<SignedOut />} />
+        <Route path="/profile" element={<UserProfilePage />} />
 
-      <Route path="/paymentss" element={<Payhistory />} />
+        <Route path="/paymentss" element={<Payhistory />} />
       </Routes>
 
     </BrowserRouter>
