@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { ClerkProvider } from "@clerk/clerk-react";
-import { initializeApp } from "firebase/app";
+import { ThemeProvider } from '@material-tailwind/react';
+import { BrowserRouter } from 'react-router-dom';
+
 import firebase from "firebase/compat/app";
 
 import "firebase/storage"; // Import specific Firebase services if you need them
@@ -37,10 +39,14 @@ if (!PUBLISHABLE_KEY) {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <React.StrictMode>  
+    <BrowserRouter>
+    <ThemeProvider>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <App />
     </ClerkProvider>
+    </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

@@ -1,18 +1,32 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react";
 import ShoppingCartBar from "./ShoppingCartBar";
-export default function ShoppingCart({ productsInCart, onQuantityChange, onProductRemove, fetchCart, Cart }) {
+import { GlobalproductsInCart } from "@/pages/OrganicItems/ShopInside";
+import Cookies from "js-cookie";
 
-    const [cartsVisibilty, setCartVisible] =
-        useState(false);     
+export default function ShoppingCart({ fetchCart, Cart }) {
+    const [cartsVisibilty, setCartVisible] = useState(false);
+    const [productsInCart, setProductsInCart] = useState([]);
 
-        
-        
-    console.log(fetchCart)
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const cartFromCookie = Cookies.get('shopping-cart');
+            setProductsInCart(
+                cartFromCookie && cartFromCookie !== 'undefined' ? JSON.parse(cartFromCookie) : []
+            );
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        setProductsInCart(GlobalproductsInCart);
+    }, [GlobalproductsInCart]);
+
     return (
         <div>
-            <ShoppingCartBar visibilty={cartsVisibilty} fetchCart={fetchCart} Cart={Cart} products={productsInCart}
+            <ShoppingCartBar visibilty={cartsVisibilty} fetchCart={fetchCart} Cart={Cart}
                 onClose={() => setCartVisible(false)}
-                onQuantityChange={onQuantityChange} onProductRemove={onProductRemove} />
+            />
             <div className="navbar1">
                 <div className="text-4xl float-right mt-[34px] mr-[104px]">
                     <button
@@ -24,14 +38,16 @@ export default function ShoppingCart({ productsInCart, onQuantityChange, onProdu
 
                         <i class="fa-sharp fa-light fa-bag-shopping fa-shake " style={{ color: "#d89f5a" }}></i>
 
-                        {productsInCart && productsInCart.length >
-                                0 && (
-                                    <span className="text-[10px] rounded-[20px] border ml-[0px] top-[20px] pl-[2pt] pr-[3pt] pt-[2px] pb-[3px] *:h-[30px] bg-midnight text-[#fff]">
-                                        {
-                                            productsInCart.length
-                                        }
-                                    </span>
-                                )}
+                        {(
+                            (GlobalproductsInCart || productsInCart) &&
+                            (GlobalproductsInCart || productsInCart).length > 0 &&
+                            (
+                                <span className="text-[10px] rounded-[20px] border ml-[0px] top-[20px] pl-[2pt] pr-[3pt] pt-[2px] pb-[3px] *:h-[30px] bg-midnight text-[#fff]">
+                                    {(GlobalproductsInCart || productsInCart).length}
+                                </span>
+                            )
+                        )}
+
                     </button>
                 </div>
             </div>

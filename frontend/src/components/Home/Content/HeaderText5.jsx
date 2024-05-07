@@ -1,5 +1,6 @@
 import React from 'react';
 import events from '../../../images/Home/event.jpg'
+import { Link } from 'react-router-dom';
 
 
 const HeaderText5 = () => {
@@ -13,8 +14,10 @@ const HeaderText5 = () => {
                 Rhythm, Energy<div className='mb-[10px]'/> <div className='mb-[10px]'/>Collective Experience
                     <div className="font-Abel text-2xl mt-[20px] mb-[0px]">
                         Eat Clean, Live Green, and Feel Amazing
-                    </div>   
+                    </div>
+                    <Link to='/event'>   
                     <button className='text-[18px] text-[#fff] font-Coda bg-[#000] p-[10px] rounded-[12px] '>View page</button>
+                    </Link>
                 </div>
             </div>
 

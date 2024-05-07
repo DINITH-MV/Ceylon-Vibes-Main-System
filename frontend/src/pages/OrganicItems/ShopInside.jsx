@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import "./product.css";
 import Cookies from 'js-cookie';
 import axios from "axios";
+import Footer from "../../components/Footer/Footer";
 
 export let GlobalproductsInCart;
 export let GlobalonQuantityChange;
@@ -342,6 +343,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
           </section>
         </div>
       </motion.div>
+      <Footer/>
     </div>
   );
 };
