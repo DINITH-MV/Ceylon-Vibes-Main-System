@@ -42,7 +42,7 @@ function ArticleComponent({ articles }) {
       {articles.map((article, index) => (
         <div
           key={index}
-          className="w-64 p-4 m-4 border border-gray-300 rounded-md"
+          className="w-64 p-4 m-4 rounded-md bg-[#fff]"
         >
           <h2 className="text-lg font-bold mb-2">{article.title}</h2>
           <img
@@ -52,12 +52,12 @@ function ArticleComponent({ articles }) {
           />
           <p className="mb-2">Views: {viewCounts[article._id]}</p>
           <Link to={`/view-article/${article._id}`}>
-          <button
-            onClick={() => incrementView(article._id)}
-            className="bg-[#879d62] text-Black font-bold py-2 px-4 rounded"
-          >
-            View Article
-          </button>
+            <button
+              onClick={() => incrementView(article._id)}
+              className="bg-[#879d62] text-Black font-bold py-2 px-4 rounded"
+            >
+              View Article
+            </button>
           </Link>
         </div>
       ))}

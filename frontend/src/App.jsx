@@ -142,7 +142,7 @@ const App = () => {
       <Route path="/checkout/slip" component={<UploadSlip />} />
       <Route path="/success" element={<PaymentSuccess />} />
       <Route path="/uploaded" element={<SlipUploaded />} />
-      {/* <Route path="/home" element={<Homepagee />} /> */}
+      <Route path="/home" element={<Homepagee />} />
       <Route path="/homee" element={<Homepagee />} />
       <Route path="/pay" element={<TotalBill />} />
       <Route path="/noti" element={<Notification />} />

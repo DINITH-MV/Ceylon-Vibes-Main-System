@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BackButton from '../Tours/BackButton';
 import Spinner from '../../components/Tours/Spinner';
-import { useUser } from "@clerk/clerk-react"
 import { useSnackbar } from 'notistack';
 
 const CreateBooking = ({ onCancel, tourId }) => {
@@ -11,11 +10,7 @@ const CreateBooking = ({ onCancel, tourId }) => {
     const [date, setDate] = useState('');
     const [loading, setLoading] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
-
-    const { user } = useUser();
-    const idd=user.id;
-
-    
+    const userId="lahiru";
     // Fetch tour details when the component mounts
     useEffect(() => {
         const fetchTourDetails = async () => {
@@ -39,12 +34,25 @@ const CreateBooking = ({ onCancel, tourId }) => {
     };
 
     const handleSaveBooking = () => {
-       
+        // Validate count
+        if (parseInt(count) <= 0) {
+            enqueueSnackbar('Cannot add minus values', { variant: 'error' });
+            return; // Stop execution if count is not valid
+        }
+
+        // Validate date
+        const selectedDate = new Date(date);
+        const currentDate = new Date();
+        if (selectedDate > currentDate) {
+            enqueueSnackbar('Selected date cannot be in the future', { variant: 'error' });
+            return; // Stop execution if selected date is in the future
+        }
+
         const totalPrice = calculateTotalPrice(); // Calculate total price
        
         const data = {
             tourId,
-            idd,
+            userId,
             count,
             totalPrice,
             date,
@@ -53,7 +61,7 @@ const CreateBooking = ({ onCancel, tourId }) => {
         setLoading(true);
         
         axios.post("http://localhost:5555/bill", {
-            User_ID: idd,
+            User_ID: userId,
             date : new Date().toISOString().split('T')[0],
             Value:totalPrice,
             type:"tours",
@@ -64,7 +72,7 @@ const CreateBooking = ({ onCancel, tourId }) => {
             status: "unread",
             description: `Your tour package " ${tour.title}" has been booked for the date ${date} be ready to enjoy!!`,
             topic: "tour",
-            userID: idd,
+            userID: userId,
           });
         axios
             .post('http://localhost:5555/bookings', data)
@@ -82,8 +90,8 @@ const CreateBooking = ({ onCancel, tourId }) => {
     }
 
     return (
-        <div className='overflow-auto max-h-full'>
-            <div className='p-4'>
+        <div className='overflow-auto max-h-full bg-[#B3B6B7]'>
+            <div className='p-4 '>
                 <BackButton onClick={onCancel} />
                 <h1 className='text-3xl my-4'>Create Booking</h1>
                 {loading ? <Spinner /> : ''}
@@ -123,8 +131,8 @@ const CreateBooking = ({ onCancel, tourId }) => {
                     </div> 
 
                     <div className="flex justify-end">
-                        <button className='p-2 bg-sky-300 mr-2' onClick={onCancel}>Cancel</button> 
-                        <button className='p-2 bg-sky-300' onClick={handleSaveBooking}>Save</button>      
+                        <button className='p-2 bg-[#E74C3C] mr-2' onClick={onCancel}>Cancel</button> 
+                        <button className='p-2 bg-[#2874A6]' onClick={handleSaveBooking}>Save</button>      
                     </div>
                 </div>
             </div>
@@ -132,4 +140,4 @@ const CreateBooking = ({ onCancel, tourId }) => {
     );
 }
 
-export default CreateBooking;
+export default CreateBooking;

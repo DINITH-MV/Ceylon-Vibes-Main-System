@@ -17,7 +17,7 @@ function ArtHistorical() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundImage: 'linear-gradient(to bottom,#f6e5e4,#259f6c' }}>
       <div>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -114,19 +114,19 @@ function ArtHistorical() {
         <br></br>
         <div className=" flex justify-evenly w-full mx-auto">
           <Link to="/art1">
-            <button className="bg-[#879d62] font-Barlow mr-4 mt-4 rounded-md h-10 w-60 text-black text-lg pr-[15px]">
+            <button className="bg-[#879d62] font-Barlow mr-4 mt-4 rounded-md h-10 w-[270px] text-black text-xl pr-[15px]">
               Attractions and Landmarks
             </button>
           </Link>
 
           <Link to="/art2">
-            <button className="bg-[#879d62] font-Barlow mr-4 mt-4 rounded-md h-10 w-60 text-black text-lg">
+            <button className="bg-[#879d62] font-Barlow mr-4 mt-4 rounded-md h-10 w-[270px] text-black text-xl">
               Natural Wonders
             </button>
           </Link>
 
           <Link to="/art3">
-            <button className="bg-[#879d62] font-Barlow mr-4 mt-4 rounded-md h-10 w-60 text-black text-lg">
+            <button className="bg-[#879d62] font-Barlow mr-4 mt-4 rounded-md h-10 w-[270px] text-black text-xl">
               Cultural Experience
             </button>
           </Link>

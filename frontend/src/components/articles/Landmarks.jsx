@@ -41,7 +41,7 @@ function ArticleComponent({ articles }) {
       {articles.map((article, index) => (
         <div
           key={index}
-          className="w-64 p-4 m-4 border border-gray-300 rounded-md"
+          className="w-64 p-4 m-4 rounded-md bg-[#fff]"
         >
           <h2 className="text-lg font-bold mb-2">{article.title}</h2>
           <img

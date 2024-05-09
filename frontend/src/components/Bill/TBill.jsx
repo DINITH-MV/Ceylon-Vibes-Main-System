@@ -7,7 +7,9 @@ const Bill = () => {
   const [billAmounts, setBillAmounts] = useState([]);
   const [total, setTotal] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
-  localStorage.setItem('id', JSON.stringify('lahiru'));
+  const { user } = useUser();
+  localStorage.setItem('id', JSON.stringify(user.id));
+  console.log(user.id)
   
   useEffect(() => {
     const fetchBills = async () => {

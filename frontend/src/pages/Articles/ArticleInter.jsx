@@ -10,7 +10,7 @@ import "./art.css";
 
 function ArticleInter() {
   return (
-    <div style ={{backgroundImage:  'linear-gradient(to bottom,#fffd88,#47d6b6'}}>
+    <div style={{ backgroundImage: 'linear-gradient(to bottom,#f6e5e4,#259f6c' }}>
       <div>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

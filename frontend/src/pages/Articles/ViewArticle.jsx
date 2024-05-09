@@ -39,15 +39,15 @@ function ViewArticle() {
 
   return (
 
-    
+
     <div className="bg-white ">
       <div className="bg-yellow h-[114px] w-[100%] fixed z-20 mt-[-100px]">
-          <LogoArticle />
-          <Buttons />
-          <SearchBar />
-          <Navbar />
-          <br/>
-        </div>
+        <LogoArticle />
+        <Buttons />
+        <SearchBar />
+        <Navbar />
+        <br />
+      </div>
       <div className="p-5 mt-20 ">
         {loading ? (
           <p>Loading...</p>
@@ -70,10 +70,10 @@ function ViewArticle() {
                 </p>
               </div>
               <div className="text-right font-bold p-10">{article.author}</div>
-             <button className="bg-[#879d62] font-Barlow mr-4 mt-4 rounded-md h-10 w-60 text-black text-lg pr-[15px] ">
-              Contact the Tourguide
-             </button>
-             <RatingReviewForm/>
+              <button className="bg-[#879d62] font-Barlow mr-4 mt-4 rounded-md h-10 w-[270px] text-black text-xl pr-[15px] ">
+                Contact the Tourguide
+              </button>
+              <RatingReviewForm />
             </div>
           </>
         )}
@@ -82,7 +82,7 @@ function ViewArticle() {
       <Footer />
     </div>
 
-    
+
   );
 }
 

@@ -11,7 +11,7 @@ import "./art.css"
 
 function ArtCatorgeries() {
   return (
-    <div>
+    <div style={{ backgroundImage: 'linear-gradient(to bottom,#f6e5e4,#259f6c' }}>
       <div className="fixed">
         <div>
           <link rel="preconnect" href="https://fonts.googleapis.com" />

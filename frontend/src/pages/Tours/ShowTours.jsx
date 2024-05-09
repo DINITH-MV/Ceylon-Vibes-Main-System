@@ -40,38 +40,36 @@ const ShowTours = () => {
   };
 
   return (
-    <div className=' bg-teal-950'>
+    <div className=''>
       <TourLogo/>
       <BackButton />
       <br />
       {loading ? (
         <Spinner />
       ) : (
-        <div className='flex flex-col border-2 border-sky-400 rounded-xl p-4'>
+        <div className='flex justify-center '>
+        <div className='flex flex-col border-1 bg-[#cbe6f7] p-4 w-2/4'>
           <div className='my-4 text-5xl font-bold font-mono text-center tracking-wider text-lime-400'>
             {tour.title}
           </div>
           {/* Render all tour details */}
           <div className='my-4'>
-          <img src={tour.imageurl} alt="Event Image" className="w-screen h-96	" />
+          <center><img src={tour.imageurl} alt="Event Image" className=" h-96	" /></center>
           </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-amber-100'>Description:</span>
+          <div className='my-4 '>
+            
             <span className='text-black'>{tour.description}</span>
           </div>
           <div className='my-4'>
             <span className='text-xl mr-4 text-amber-100'>Category:</span>
             <span className='text-black'>{tour.category} Hikes</span>
           </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-amber-100'>Price:</span>
-            <span className='text-black'>{tour.price}/= per person</span>
-          </div>
+          
           <div className="flex justify-center mt-4">
             <div className="mr-4">
-              <button onClick={handleBookNow} className='bg-BrownLi text-black w-28 h-10 rounded-md'>Book now</button>
+              <button onClick={handleBookNow} className='bg-[#2E86C1] text-black w-28 h-10 rounded-md'>Book now</button>
             </div>
-          </div> <RatingReviewForm/>
+          </div> 
           {/* Render CreateBooking component as a popup */}
           {showCreateBooking && (
             <div className="fixed inset-0 z-10 flex items-center justify-center">
@@ -82,10 +80,16 @@ const ShowTours = () => {
             </div>
           )}
           {/* Display tour ID */}
-          <div className="mt-4 text-white text-center">Tour ID: {id}</div>
+          <div className="mt-4 text-black text-center">Tour ID: {id}</div>
          
         </div>
-        
+        <div className='w-1/4 bg-[#c5d39e]'><RatingReviewForm/>
+        <div className='my-4 text-[#616823] font-bold text-center'>
+            <span className='text-xl mr-4 text-amber-100'>Price:</span>
+            <span className='text-black'>{tour.price}/= per person</span>
+          </div>
+          </div>
+        </div>
       )}
       <Footer/>
     </div>
@@ -93,3 +97,4 @@ const ShowTours = () => {
 };
 
 export default ShowTours;
+//showtours

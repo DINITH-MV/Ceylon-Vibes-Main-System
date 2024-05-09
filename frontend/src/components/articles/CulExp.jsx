@@ -37,11 +37,11 @@ function ArticleComponent({ articles }) {
   };
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap justify-center ">
       {articles.map((article, index) => (
         <div
           key={index}
-          className="w-64 p-4 m-4 border border-gray-300 rounded-md"
+          className="w-64 p-4 m-4 rounded-md bg-[#fff]"
         >
           <h2 className="text-lg font-bold mb-2">{article.title}</h2>
           <img
