@@ -3,6 +3,7 @@ import axios from 'axios';
 import BackButton from '../Tours/BackButton';
 import Spinner from '../../components/Tours/Spinner';
 import { useSnackbar } from 'notistack';
+import { useUser } from "@clerk/clerk-react"
 
 const CreateBooking = ({ onCancel, tourId }) => {
     const [count, setCount] = useState('');
@@ -10,8 +11,10 @@ const CreateBooking = ({ onCancel, tourId }) => {
     const [date, setDate] = useState('');
     const [loading, setLoading] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
-    const userId="lahiru";
-    // Fetch tour details when the component mounts
+        
+    const { user } = useUser();
+	let userId = user.id;
+
     useEffect(() => {
         const fetchTourDetails = async () => {
             try {
@@ -21,6 +24,8 @@ const CreateBooking = ({ onCancel, tourId }) => {
                 console.error('Error fetching tour:', error);
             }
         };
+
+        console.log(userId)
 
         fetchTourDetails();
     }, [tourId]);
@@ -49,7 +54,7 @@ const CreateBooking = ({ onCancel, tourId }) => {
         }
 
         const totalPrice = calculateTotalPrice(); // Calculate total price
-       
+
         const data = {
             tourId,
             userId,
@@ -59,34 +64,34 @@ const CreateBooking = ({ onCancel, tourId }) => {
         };
 
         setLoading(true);
-        
+
         axios.post("http://localhost:5555/bill", {
             User_ID: userId,
-            date : new Date().toISOString().split('T')[0],
-            Value:totalPrice,
-            type:"tours",
-            status:"unpaid",
-          });
-           axios.post("http://localhost:5555/noti", {
+            date: new Date().toISOString().split('T')[0],
+            Value: totalPrice,
+            type: "tours",
+            status: "unpaid",
+        });
+        axios.post("http://localhost:5555/noti", {
             date: new Date().toISOString(),
             status: "unread",
             description: `Your tour package " ${tour.title}" has been booked for the date ${date} be ready to enjoy!!`,
             topic: "tour",
             userID: userId,
-          });
+        });
         axios
             .post('http://localhost:5555/bookings', data)
             .then(() => {
                 setLoading(false);
-                enqueueSnackbar('Booking created successfully', { variant: 'success'});
+                enqueueSnackbar('Booking created successfully', { variant: 'success' });
                 onCancel(); // Close the popup after booking creation
             })
             .catch(error => {
                 setLoading(false);
-                enqueueSnackbar('Error', { variant: 'error'});
+                enqueueSnackbar('Error', { variant: 'error' });
                 console.error(error);
             });
-            
+
     }
 
     return (
@@ -96,13 +101,13 @@ const CreateBooking = ({ onCancel, tourId }) => {
                 <h1 className='text-3xl my-4'>Create Booking</h1>
                 {loading ? <Spinner /> : ''}
                 <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto'>
-                <div className='my-4'>
-</div>
+                    <div className='my-4'>
+                    </div>
 
 
                     <div className='my-4'>
                         <label className='text-xl mr-4 text-gray-500'>Count</label>
-                        <input 
+                        <input
                             type='number'
                             value={count}
                             onChange={(e) => setCount(e.target.value)}
@@ -112,7 +117,7 @@ const CreateBooking = ({ onCancel, tourId }) => {
 
                     <div className='my-4'>
                         <label className='text-xl mr-4 text-gray-500'>Total Price</label>
-                        <input 
+                        <input
                             type='text'
                             value={calculateTotalPrice()} // Display calculated total price
                             readOnly
@@ -122,17 +127,17 @@ const CreateBooking = ({ onCancel, tourId }) => {
 
                     <div className='my-4'>
                         <label className='text-xl mr-4 text-gray-500'>Date</label>
-                        <input 
+                        <input
                             type='date'
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
                             className='border-2 border-gray-500 px-4 py-2 w-full'
                         />
-                    </div> 
+                    </div>
 
                     <div className="flex justify-end">
-                        <button className='p-2 bg-[#E74C3C] mr-2' onClick={onCancel}>Cancel</button> 
-                        <button className='p-2 bg-[#2874A6]' onClick={handleSaveBooking}>Save</button>      
+                        <button className='p-2 bg-[#E74C3C] mr-2' onClick={onCancel}>Cancel</button>
+                        <button className='p-2 bg-[#2874A6]' onClick={handleSaveBooking}>Save</button>
                     </div>
                 </div>
             </div>
@@ -140,4 +145,4 @@ const CreateBooking = ({ onCancel, tourId }) => {
     );
 }
 
-export default CreateBooking;
+export default CreateBooking;

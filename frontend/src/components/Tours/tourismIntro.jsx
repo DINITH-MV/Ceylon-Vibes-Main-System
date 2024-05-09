@@ -1,9 +1,9 @@
 import React from 'react';
-import tourintro from '../../../public/images/nature1.jpg'; 
+import tourintro from '../../../public/images/nature1.jpg';
 
 const TourismIntro = () => {
   return (
-    <div className=" h-96 bg-fixed flex justify-center items-center" style={{ 
+    <div className=" h-96 bg-fixed flex justify-center items-center" style={{
       backgroundImage: `url(${tourintro})`,
       backgroundSize: '100% 100%',
       backgroundPosition: 'center'

@@ -11,14 +11,14 @@ export default function Buttons() {
   };
 
   return (
-    <div className="">
-      <div className="mt-[0px]">
+    <div>
+      <div className="mt-[36px]">
         {user ? (
           <>
-            <button onClick={handleSignOut} class="font-Cairo font-[12pt] bg-BrownLi2 hover:bg-yellowDr text-Black hover:text-white py-2 px-4  hover:border-blue-500 mr-[-230.2px] md-[60px]  float-right rounded">
+            <button onClick={handleSignOut} class="font-Cairo font-[12pt] bg-BrownLi2 hover:bg-yellowDr text-Black hover:text-white py-2 px-4  hover:border-blue-500 mr-[116.2px] md-[60px]  float-right rounded">
               Sign Out
             </button>
-            <button class="font-Cairo font-[12pt] bg-BrownLi2 hover:bg-yellowDr text-Black hover:text-white py-2 px-4  hover:border-blue-500 mr-[-122px] md-[60px]  float-right rounded">
+            <button class="font-Cairo font-[12pt] bg-BrownLi2 hover:bg-yellowDr text-Black hover:text-white py-2 px-4  hover:border-blue-500 mr-[8px] md-[60px]  float-right rounded">
               <Link to="/profile">Profile</Link>
             </button>
           </>

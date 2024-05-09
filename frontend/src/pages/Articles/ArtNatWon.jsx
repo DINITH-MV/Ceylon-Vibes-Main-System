@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import ForY from "../../components/articles/ForY";
 import LogoArticle from "../../components/articles/LogoArticle";
-import Buttons from "../../components/Header/Buttons";
-import SearchBar from "../../components/Header/SearchBar";
+import Buttons from "../../components/Header/Acticles/Buttons";
+import SearchBar from "../../components/Header/Acticles/SearchBar";
 import Navbar from "../../components/Header/Navbar";
 import Footer from "../../components/Footer/Footer";
 import NatureArt from "../../components/articles/NatureArt";//////

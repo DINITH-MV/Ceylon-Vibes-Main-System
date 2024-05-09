@@ -1,6 +1,6 @@
 import React from "react";
 import SPALOGOMENU from "../../components/SPA/SPALOGOMENU";
-import Buttons from "../../components/Header/Buttons";
+import Buttons from "../../components/Header/SPA/Buttons";
 import Navbar from "../../components/Header/Navbar";
 import Footer from "../../components/Footer/Footer";
 import AyurvedicSpaMenu from "../../components/SPA/AyurvedicSpaMenu";

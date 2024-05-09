@@ -2,8 +2,8 @@ import React from 'react'
 import SPALOGO from '../../components/SPA/SPALOGO'
 import Footer from '../../components/Footer/Footer'
 import SPAHOMEPAGE from '../../components/SPA/SPAHOMEPAGE'
-import Buttons from "../../components/Header/Buttons";
-import SearchBar from "../../components/Header/SearchBar";
+import Buttons from "../../components/Header/SPA/Buttons";
+import SearchBar from "../../components/Header/SPA/SearchBar";
 import Navbar from "../../components/Header/Navbar";
 
 

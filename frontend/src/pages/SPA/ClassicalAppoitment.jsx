@@ -1,6 +1,6 @@
 import React from "react";
 import SPALOGOAPP from "../../components/SPA/SPALOGOAPP";
-import Buttons from "../../components/Header/Buttons";
+import Buttons from "../../components/Header/SPA/Buttons";
 import Navbar from "../../components/Header/Navbar";
 import Footer from "../../components/Footer/Footer";
 import AppointmentClassical from "../../components/SPA/AppointmentCla";

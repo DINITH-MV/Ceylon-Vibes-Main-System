@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Buttons from "../../components/Header/Buttons";
+import Buttons from "../../components/Header/Rentals/Buttons";
+import SearchBar from "../../components/Header/Rentals/SearchBar";
 import Navbar from "../../components/Header/Navbar";
 import Footer from "../../components/Footer/Footer";
 import LogoRentals from "../../components/rental/logoRentals";

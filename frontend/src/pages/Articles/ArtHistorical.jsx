@@ -4,8 +4,8 @@ import Historical from "../../components/articles/Historical";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import ForY from "../../components/articles/ForY";
-import Buttons from "../../components/Header/Buttons";
-import SearchBar from "../../components/Header/SearchBar";
+import Buttons from "../../components/Header/Acticles/Buttons";
+import SearchBar from "../../components/Header/Acticles/SearchBar";
 import Navbar from "../../components/Header/Navbar";
 import Footer from "../../components/Footer/Footer";
 function ArtHistorical() {
