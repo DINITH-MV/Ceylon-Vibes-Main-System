@@ -3,6 +3,11 @@ import { Catagory, Offers, Products, List, Cart} from "../models/storeModel.js";
 import path from "path";
 import multer from "multer";
 import MongoClient from "mongodb";
+import fs from "fs";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const router = express();
 
@@ -87,6 +92,18 @@ router.delete("/catagories/:id", (req, res) => {
       }
     })
     .catch((err) => console.log(err)); // Use console.log to log errors
+});
+
+router.delete("/catImages/:id", (req, res) => {
+  const id = req.params.id; // Use req.params to access route parameters
+
+  const filePath = path.join(__dirname, "../public/catagories", id);
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Failed to delete image file" });
+    }
+  });
 });
 
 router.get("/api/productsSearch", (req, res) => {
