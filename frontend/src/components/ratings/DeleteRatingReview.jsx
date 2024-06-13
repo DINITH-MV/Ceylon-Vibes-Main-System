@@ -23,7 +23,7 @@ const DeleteRatingReview = () => {
     const handleDeleteRatingReview = () => {
         setLoading(true);
         axios
-            .delete(`http://localhost:5555/ratingreviews/${id}`)
+            .delete(`http://localhost:5012/ratingreviews/${id}`)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Rating and review deleted successfully', { variant: 'success' });

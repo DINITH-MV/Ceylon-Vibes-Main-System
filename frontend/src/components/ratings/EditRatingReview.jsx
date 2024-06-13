@@ -15,7 +15,7 @@ const EditRatingReview = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:5555/ratingreviews/${id}`)
+        axios.get(`http://localhost:5012/ratingreviews/${id}`)
             .then((response) => {
                 setRating(response.data.rating);
                 setReview(response.data.review);
@@ -39,7 +39,7 @@ const EditRatingReview = () => {
         };
         setLoading(true);
         axios
-            .put(`http://localhost:5555/ratingreviews/${id}`, data)
+            .put(`http://localhost:5012/ratingreviews/${id}`, data)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Rating and review edited successfully', { variant: 'success' });

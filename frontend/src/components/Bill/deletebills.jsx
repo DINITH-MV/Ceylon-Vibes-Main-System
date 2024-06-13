@@ -7,7 +7,7 @@ const BillsComponent = ({ user_id }) => {
   useEffect(() => {
     const fetchBills = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/bill");
+        const response = await axios.get("http://localhost:5012/bill");
         const unpaidBillsData = response.data.filter(
           (bill) => bill.status === 'paid' && bill.User_ID === 'lahiru'
         );
@@ -21,7 +21,7 @@ const BillsComponent = ({ user_id }) => {
 
   const handleDelete = async (billId) => {
     try {
-      await axios.delete(`http://localhost:5555/bill/${billId}`,);
+      await axios.delete(`http://localhost:5012/bill/${billId}`,);
       // After successful deletion, update the unpaidBills state to reflect the changes
       setUnpaidBills(prevBills => prevBills.filter(bill => bill._id !== billId));
     } catch (error) {

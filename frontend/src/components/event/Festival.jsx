@@ -13,7 +13,7 @@ function EventComponent() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/events");
+        const response = await axios.get("http://localhost:5012/events");
         const filteredEvents = response.data.filter(
           (event) => event.Category === 'festival'
         );
@@ -61,11 +61,11 @@ function EventComponent() {
 
 function Festival() {
   return (
-    <div className="h-24 bg-[#eba5f1]"> 
-    <EventHeader/>
-    <div className="flex flex-col justify-center pt-[25px]">
-     <SearchBar/>
-     </div>
+    <div className="h-24 bg-[#eba5f1]">
+      <EventHeader />
+      <div className="flex flex-col justify-center pt-[25px]">
+        <SearchBar />
+      </div>
       <div className="pt-[100px] flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <div className="flex justify-center mb-4">
           <Link to="/music1">
@@ -91,7 +91,7 @@ function Festival() {
         </div>
         <EventComponent />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

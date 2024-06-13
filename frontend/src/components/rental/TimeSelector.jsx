@@ -12,10 +12,10 @@ const TimeSelector = ({ car }) => {
   const [hours, setHours] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
-	const { user } = useUser();
-  const idd=user.id;
+  const { user } = useUser();
+  const idd = user.id;
 
-  
+
   const price = car.price * hours;
   const category = "001";
   const status = "unpaid";
@@ -57,7 +57,7 @@ const TimeSelector = ({ car }) => {
       setErrorMessage("Please select an end time");
       return;
     }
-  
+
     const billData = {
       User_ID: idd,
       date: new Date().toISOString().split('T')[0],
@@ -65,12 +65,12 @@ const TimeSelector = ({ car }) => {
       type: "transport",
       status: "unpaid",
     };
-  
+
     try {
       // Save bill data
-      await axios.post("http://localhost:5555/bill", billData);
+      await axios.post("http://localhost:5012/bill", billData);
       console.log("Bill data saved successfully");
-  
+
       // Save rental data
       const rentalData = {
         User_ID: idd,
@@ -82,18 +82,18 @@ const TimeSelector = ({ car }) => {
         category: category,
       };
 
-      await axios.post("http://localhost:5555/noti", {
-            date: new Date().toISOString(),
-            status: "unread",
-            description: `Your vehicle has been booked for the date ${startTime.toISOString().slice(0, 10)} `,
-            topic: "tour",
-            userID: idd,
-          });
+      await axios.post("http://localhost:5012/noti", {
+        date: new Date().toISOString(),
+        status: "unread",
+        description: `Your vehicle has been booked for the date ${startTime.toISOString().slice(0, 10)} `,
+        topic: "tour",
+        userID: idd,
+      });
 
 
-      await axios.post("http://localhost:5555/api/rents/", rentalData);
+      await axios.post("http://localhost:5012/api/rents/", rentalData);
       console.log("Rental data saved successfully");
-  
+
       // Redirect after both requests are completed
       window.location.href = "/car1";
     } catch (error) {
@@ -102,7 +102,7 @@ const TimeSelector = ({ car }) => {
       setErrorMessage("Error occurred while saving data");
     }
   };
-  
+
   return (
     <div className="max-w-md bg-white shadow-md rounded-lg p-6">
       <h2 className="text-2xl font-bold mb-4">Select Time</h2>
@@ -162,9 +162,8 @@ const TimeSelector = ({ car }) => {
       <div className="mt-4 text-right">
         <button
           onClick={handleSubmit}
-          className={`bg-[#eb3d12] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-            !hours || hours <= 0 ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          className={`bg-[#eb3d12] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${!hours || hours <= 0 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           disabled={!hours || hours <= 0 || errorMessage}
         >
           Check Out

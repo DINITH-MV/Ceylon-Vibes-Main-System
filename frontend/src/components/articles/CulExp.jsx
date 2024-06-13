@@ -11,7 +11,7 @@ function ArticleComponent({ articles }) {
         const initialViewCounts = {};
         for (const article of articles) {
           const response = await axios.get(
-            `http://localhost:5555/api/articles/${article._id}`
+            `http://localhost:5012/api/articles/${article._id}`
           );
           initialViewCounts[article._id] = response.data.article.views;
         }
@@ -26,7 +26,7 @@ function ArticleComponent({ articles }) {
 
   const handleViewArticle = async (articleId) => {
     try {
-      await axios.put(`http://localhost:5555/api/articles/increment-views/${articleId}`);
+      await axios.put(`http://localhost:5012/api/articles/increment-views/${articleId}`);
       setViewCounts((prevViewCounts) => ({
         ...prevViewCounts,
         [articleId]: (prevViewCounts[articleId] || 0) + 1,
@@ -74,7 +74,7 @@ function CulExp({ searchQuery }) {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5555/api/articles?category=Cultural%20Experience&title=${searchQuery}`
+          `http://localhost:5012/api/articles?category=Cultural%20Experience&title=${searchQuery}`
         );
         setFound(true);
 

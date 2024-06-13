@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Card = () => {
   const currentDate = new Date().toISOString().split('T')[0];
-  
+
   const id = JSON.parse(localStorage.getItem("id"));
   const total = JSON.parse(localStorage.getItem("total"));
 
@@ -65,17 +65,17 @@ const Card = () => {
 
       // Iterate over each filtered bill ID and update its status to "paid"
       for (const billId of filteredBillIds) {
-        await axios.delete(`http://localhost:5555/bill/${billId}`);
+        await axios.delete(`http://localhost:5012/bill/${billId}`);
       }
 
       // Create payment record
-      await axios.post("http://localhost:5555/pay", {
+      await axios.post("http://localhost:5012/pay", {
         User_ID: id,
         pmethod: "card",
         date: currentDate,
         Value: total,
       });
-      await axios.post("http://localhost:5555/noti", {
+      await axios.post("http://localhost:5012/noti", {
         date: new Date().toISOString(),
         status: "unread",
         description: `Your payment amount ${total} has been received Thank you !!`,
@@ -97,9 +97,9 @@ const Card = () => {
 
   return (
     <div className="max-w-sm mx-auto bg-white shadow-md rounded-lg overflow-hidden">
-      
+
       <div className="px-6 py-4">
-        
+
         <h2 className="text-lg font-semibold mb-2">Card Payment</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -160,7 +160,7 @@ const Card = () => {
             />
             {cvvError && <p className="text-red-500 text-xs italic">{cvvError}</p>}
           </div>
-          <button 
+          <button
             className="bg-[#44d658] text-Black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit">
             Confirm Payment

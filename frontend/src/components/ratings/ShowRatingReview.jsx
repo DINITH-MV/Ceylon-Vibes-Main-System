@@ -12,7 +12,7 @@ const ShowRatingReview = () => {
   const fetchRatingReviewDetails = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5555/ratingreviews/${id}`);
+      const response = await axios.get(`http://localhost:5012/ratingreviews/${id}`);
       setRatingReview(response.data);
       setLoading(false);
     } catch (error) {

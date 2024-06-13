@@ -16,7 +16,7 @@ function CarRental() {
     const fetchCars = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5555/api/cars?category=Car&brand=${searchQuery}`
+          `http://localhost:5012/api/cars?category=Car&brand=${searchQuery}`
         );
 
         if (!response.ok) {
@@ -96,7 +96,7 @@ function CarRental() {
           />
         </div>
         <div className="bg-yellow h-[114px] w-[100%] fixed z-20">
-        <LogoRentals/>
+          <LogoRentals />
           <Buttons />
           <div className="">
             <div

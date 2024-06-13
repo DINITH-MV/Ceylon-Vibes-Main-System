@@ -61,7 +61,7 @@ const App = () => {
   const [offers, setOffers] = useState([]);
   const [cart, setCart] = useState([]);
 
-  axios.defaults.baseURL = `http://localhost:5555`;
+  axios.defaults.baseURL = `http://localhost:5012`;
 
   const fetchNuts = async () => {
     try {

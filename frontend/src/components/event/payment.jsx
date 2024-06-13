@@ -16,15 +16,15 @@ const EventDetails = ({ eventId }) => {
   const [ticketCount, setTicketCount] = useState(1);
   const [ticketType, setTicketType] = useState('standard');
   const [standardPrice, setStandardPrice] = useState(0); // Initialize standardPrice state
-  
+
   const { user } = useUser();
-  
-  const idd=user.id;
-  
+
+  const idd = user.id;
+
   useEffect(() => {
     const fetchEventData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5555/events/${id}`);
+        const response = await axios.get(`http://localhost:5012/events/${id}`);
         if (response.status === 200) {
           setEventData(response.data);
           setStandardPrice(response.data.ticketPrice); // Set standardPrice from eventData
@@ -62,7 +62,7 @@ const EventDetails = ({ eventId }) => {
       Eventid: id
     };
 
-    axios.post("http://localhost:5555/Ticket", data)
+    axios.post("http://localhost:5012/Ticket", data)
       .then(response => {
         console.log("Data saved successfully:", response.data);
         // Reset the form or perform any other necessary actions upon successful save
@@ -71,20 +71,20 @@ const EventDetails = ({ eventId }) => {
         console.error("Error saving data:", error);
         // Handle any errors that occur during the save process
       });
-     axios.post("http://localhost:5555/bill", {
-        User_ID: idd,
-        date : new Date().toISOString().split('T')[0],
-        Value:totalPrice,
-        type:"ticket",
-        status:"unpaid",
-      });
-      axios.post("http://localhost:5555/noti", {
-            date: new Date().toISOString(),
-            status: "unread",
-            description: `Your tickets for the show ${eventData.EventName} has been added for the cart `,
-            topic: "event",
-            userID: idd,
-          });
+    axios.post("http://localhost:5012/bill", {
+      User_ID: idd,
+      date: new Date().toISOString().split('T')[0],
+      Value: totalPrice,
+      type: "ticket",
+      status: "unpaid",
+    });
+    axios.post("http://localhost:5012/noti", {
+      date: new Date().toISOString(),
+      status: "unread",
+      description: `Your tickets for the show ${eventData.EventName} has been added for the cart `,
+      topic: "event",
+      userID: idd,
+    });
   };
 
 
@@ -114,8 +114,8 @@ const EventDetails = ({ eventId }) => {
           <button className="bg-[#75df44] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleSubmit}>
             <Link to="/even">Buy Tickets</Link>
           </button>
-        </div> <RatingReviewForm/>
-      </div>   
+        </div> <RatingReviewForm />
+      </div>
     </div>
   );
 };

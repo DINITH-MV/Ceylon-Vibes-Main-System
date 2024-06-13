@@ -17,7 +17,7 @@ function VehicalRental() {
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5555/api/cars/${id}`);
+        const response = await fetch(`http://localhost:5012/api/cars/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch car details");
         }
@@ -82,7 +82,7 @@ function VehicalRental() {
         />
       </div>
       <div className="bg-yellow h-[114px] w-[100%] fixed z-20">
-      <LogoRentals/>
+        <LogoRentals />
         <Buttons />
         <SearchBar />
         <Navbar />
@@ -107,7 +107,7 @@ function VehicalRental() {
                 <br />
                 <br />
                 <TimeSelector car={car} />
-           
+
               </>
             ) : (
               <p>Car not found</p>
@@ -121,7 +121,7 @@ function VehicalRental() {
             />
           )}
         </div>
-        <RatingReviewForm/>
+        <RatingReviewForm />
       </div>
       <Footer />
     </div>

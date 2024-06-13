@@ -9,10 +9,10 @@ const CarDetails = ({ carId }) => {
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5555/api/cars/${carId}`);
+        const response = await fetch(`http://localhost:5012/api/cars/${carId}`);
         if (!response.ok) {
           throw new Error("Failed to fetch car details");
-          console.log(`http://localhost:5555/api/cars/${carId}`);
+          console.log(`http://localhost:5012/api/cars/${carId}`);
         }
         const data = await response.json();
         setCar(data.car);
@@ -43,10 +43,10 @@ const CarDetails = ({ carId }) => {
             <br />
             <br />
             <br />
-            <RatingReviewForm/>
+            <RatingReviewForm />
             <br />
             <br />
-        
+
           </>
         ) : (
           <p>Car not found</p>

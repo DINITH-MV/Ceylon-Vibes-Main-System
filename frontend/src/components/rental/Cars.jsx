@@ -40,7 +40,7 @@ function Cars() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch("http://localhost:5555/api/cars");
+        const response = await fetch("http://localhost:5012/api/cars");
         const responseData = await response.json();
         if (responseData && Array.isArray(responseData.cars)) {
           setCars1(responseData.cars);

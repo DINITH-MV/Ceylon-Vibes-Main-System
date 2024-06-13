@@ -13,7 +13,7 @@ const ServiceConfirm = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:5555/appointmentSPA')
+      .get('http://localhost:5012/appointmentSPA')
       .then((response) => {
         const appointments = response.data.data;
         if (appointments.length > 0) {
@@ -32,7 +32,7 @@ const ServiceConfirm = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5555/appointmentSPA/${id}`)
+      .delete(`http://localhost:5012/appointmentSPA/${id}`)
       .then((response) => {
         // Filter out the deleted appointment from state
         setAppointmentSpa((prevAppointments) =>
@@ -78,13 +78,13 @@ const ServiceConfirm = () => {
         <>
           {showConfirmation && (
             <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center">
-            <div className="bg-[#F3F4F6] p-10 rounded shadow-md">
+              <div className="bg-[#F3F4F6] p-10 rounded shadow-md">
                 <p className='text-lg font-semibold mb-4'>Are you sure you want to delete this appointment?</p>
                 <div className='flex justify-between'>
-                <Link to="/s">
-                  <button className='bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-2 px-4 mr-2 rounded' onClick={confirmDelete}>
-                    Yes, Delete
-                  </button>
+                  <Link to="/s">
+                    <button className='bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-2 px-4 mr-2 rounded' onClick={confirmDelete}>
+                      Yes, Delete
+                    </button>
                   </Link>
                   <button className='bg-[#9CA3AF] hover:bg-[#6B7280] text-black font-bold py-2 px-4 rounded' onClick={() => setShowConfirmation(false)}>
                     Cancel
@@ -94,7 +94,7 @@ const ServiceConfirm = () => {
             </div>
           )}
 
-         
+
 
           <table className='w-full border-separate border-spacing-2'>
             <thead>

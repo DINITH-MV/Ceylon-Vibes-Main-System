@@ -20,7 +20,7 @@ function ViewArticle() {
     const fetchArticle = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5555/api/articles/${id}`
+          `http://localhost:5012/api/articles/${id}`
         );
         if (!response.data || !response.data.article) {
           throw new Error("Invalid response from server");

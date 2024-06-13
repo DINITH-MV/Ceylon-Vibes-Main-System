@@ -8,12 +8,12 @@ const AcceptedSlips = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortType, setSortType] = useState(""); // State to store current sort type
   const [currentPage, setCurrentPage] = useState(1); // State to store current page number
-  const [billAvailable, setBillAvailable] = useState(false); 
+  const [billAvailable, setBillAvailable] = useState(false);
 
   useEffect(() => {
     const fetchAcceptedSlips = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/slips");
+        const response = await axios.get("http://localhost:5012/slips");
         setAcceptedSlips(response.data.filter(slip => slip.status === 'Accepted'));
         const billExists = response.data.some(slip => slip.status === 'Accepted' && slip.billAvailable);
         setBillAvailable(billExists);
@@ -32,7 +32,7 @@ const AcceptedSlips = () => {
   const handleSort = (type) => {
     setSortType(type);
     let sortedSlips = [...filteredSlips];
-    switch(type) {
+    switch (type) {
       case 'firstToLast':
         sortedSlips.sort((a, b) => new Date(a.date) - new Date(b.date));
         break;
@@ -58,14 +58,14 @@ const AcceptedSlips = () => {
   //   try {
   //     // Iterate through filteredSlips array and delete each slip
   //     for (const slip of filteredSlips) {
-  //       await axios.delete(`http://localhost:5555/slips/${slip._id}`);
+  //       await axios.delete(`http://localhost:5012/slips/${slip._id}`);
   //     }
   //     setAcceptedSlips([]); // Clear the state after deletion
   //   } catch (error) {
   //     console.error('Error deleting slips:', error);
   //   }
   // };
-  
+
 
   // Calculate start and end index for current page
   const startIndex = (currentPage - 1) * 10;
@@ -74,7 +74,7 @@ const AcceptedSlips = () => {
   return (
     <div className="accept">
       <div className='bg-[#DAF7A6]'>
-        <br/><div className="mt-[10px] ml-[650px] font-Spirax absolute text-[30pt] ">
+        <br /><div className="mt-[10px] ml-[650px] font-Spirax absolute text-[30pt] ">
           Accepted Slips
         </div>
         <BillLogo />
@@ -111,9 +111,9 @@ const AcceptedSlips = () => {
             </div>
           </div>
         </div>
-        <br/><br/><br/><br/>
+        <br /><br /><br /><br />
       </div>
-      <br/>
+      <br />
       <div className="container mx-auto px-4 py-8 bg-[#b3eca5]">
         {/* Button to delete all slips
         <button onClick={handleDeleteAllSlips} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 mr-2">
@@ -146,7 +146,7 @@ const AcceptedSlips = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{startIndex + index + 1}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{slip.User_ID}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{new Date(slip.date).toLocaleDateString()}</td>
-                 
+
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{slip.Value}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <img src={slip.imagePath} alt="Slip" className="h-10 w-10 rounded-full" />
@@ -156,7 +156,7 @@ const AcceptedSlips = () => {
             </tbody>
           </table>
         </div>
-        
+
         {/* Pagination */}
         <div className="flex justify-center mt-4">
           {Array.from({ length: Math.ceil(filteredSlips.length / 10) }, (_, i) => (
@@ -170,12 +170,12 @@ const AcceptedSlips = () => {
           ))}
         </div>
         <center>
-        <Link to="/received">
+          <Link to="/received">
             <button className="bg-[#008000] text-white font-bold py-2 px-4 rounded mt-4">
               Back
             </button>
           </Link>
-          </center>
+        </center>
       </div>
     </div>
   );

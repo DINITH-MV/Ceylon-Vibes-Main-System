@@ -14,7 +14,7 @@ const AppointmentClassical = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get('http://localhost:5555/classicalSpa');
+        const response = await axios.get('http://localhost:5012/classicalSpa');
         const { data } = response.data;
         setServices(data); // Assuming 'data' is an array of services from the backend
       } catch (error) {
@@ -38,7 +38,7 @@ const AppointmentClassical = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5555/appointmentSPA', data);
+      const response = await axios.post('http://localhost:5012/appointmentSPA', data);
       const newAppointment = response.data; // This contains the newly created appointment object with its ID
 
       // Redirect to the Service Confirm page

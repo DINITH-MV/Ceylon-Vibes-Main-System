@@ -6,7 +6,7 @@ function Notifications() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5555/noti")
+    axios.get("http://localhost:5012/noti")
       .then(response => {
         // Sort notifications by date in descending order
         const sortedNotifications = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -20,7 +20,7 @@ function Notifications() {
   }, []);
 
   const deleteNotification = (id) => {
-    axios.delete(`http://localhost:5555/noti/${id}`)
+    axios.delete(`http://localhost:5012/noti/${id}`)
       .then(() => {
         setNotifications(notifications.filter(notification => notification._id !== id));
       })
@@ -28,16 +28,16 @@ function Notifications() {
         console.error('Error deleting notification:', error);
       });
   };
-  
+
   const deleteAllNotifications = () => {
     const deleteNotificationById = (idList) => {
       if (idList.length === 0) {
         window.location.reload();
         return;
       }
-  
+
       const idToDelete = idList.pop();
-      axios.delete(`http://localhost:5555/noti/${idToDelete}`)
+      axios.delete(`http://localhost:5012/noti/${idToDelete}`)
         .then(response => {
           if (response.status === 200) {
             deleteNotificationById(idList);
@@ -49,7 +49,7 @@ function Notifications() {
           console.error('Error deleting notification:', idToDelete, error);
         });
     };
-  
+
     const notificationIds = notifications.map(notification => notification._id);
     deleteNotificationById(notificationIds);
   };

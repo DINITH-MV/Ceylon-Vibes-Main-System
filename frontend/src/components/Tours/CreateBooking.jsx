@@ -11,14 +11,14 @@ const CreateBooking = ({ onCancel, tourId }) => {
     const [date, setDate] = useState('');
     const [loading, setLoading] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
-        
+
     const { user } = useUser();
-	let userId = user.id;
+    let userId = user.id;
 
     useEffect(() => {
         const fetchTourDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:5555/tours/${tourId}`);
+                const response = await axios.get(`http://localhost:5012/tours/${tourId}`);
                 setTour(response.data);
             } catch (error) {
                 console.error('Error fetching tour:', error);
@@ -65,14 +65,14 @@ const CreateBooking = ({ onCancel, tourId }) => {
 
         setLoading(true);
 
-        axios.post("http://localhost:5555/bill", {
+        axios.post("http://localhost:5012/bill", {
             User_ID: userId,
             date: new Date().toISOString().split('T')[0],
             Value: totalPrice,
             type: "tours",
             status: "unpaid",
         });
-        axios.post("http://localhost:5555/noti", {
+        axios.post("http://localhost:5012/noti", {
             date: new Date().toISOString(),
             status: "unread",
             description: `Your tour package " ${tour.title}" has been booked for the date ${date} be ready to enjoy!!`,
@@ -80,7 +80,7 @@ const CreateBooking = ({ onCancel, tourId }) => {
             userID: userId,
         });
         axios
-            .post('http://localhost:5555/bookings', data)
+            .post('http://localhost:5012/bookings', data)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Booking created successfully', { variant: 'success' });

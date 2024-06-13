@@ -11,7 +11,7 @@ function ArticleComponent({ articles }) {
         const viewCountsData = {};
         for (const article of articles) {
           const response = await axios.get(
-            `http://localhost:5555/api/articles/${article._id}`
+            `http://localhost:5012/api/articles/${article._id}`
           );
           viewCountsData[article._id] = response.data.article.views;
         }
@@ -26,7 +26,7 @@ function ArticleComponent({ articles }) {
 
   const incrementView = async (articleId) => {
     try {
-      await axios.put(`http://localhost:5555/api/articles/increment-views/${articleId}`);
+      await axios.put(`http://localhost:5012/api/articles/increment-views/${articleId}`);
       // Update the local state to reflect the incremented view count
       setViewCounts(prevCounts => ({
         ...prevCounts,
@@ -75,7 +75,7 @@ function Nature1({ searchQuery }) {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5555/api/articles?category=Natural%20Wonders&title=${searchQuery}`
+          `http://localhost:5012/api/articles?category=Natural%20Wonders&title=${searchQuery}`
         );
         setFound(true);
 

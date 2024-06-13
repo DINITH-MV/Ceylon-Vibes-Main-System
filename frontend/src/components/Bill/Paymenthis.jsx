@@ -8,12 +8,12 @@ const Payhistory = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortType, setSortType] = useState(""); // State to store current sort type
   const [currentPage, setCurrentPage] = useState(1); // State to store current page number
-  const [billAvailable, setBillAvailable] = useState(false); 
+  const [billAvailable, setBillAvailable] = useState(false);
 
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/pay");
+        const response = await axios.get("http://localhost:5012/pay");
         setPayments(response.data);
         const billExists = response.data.some(payment => payment.billAvailable);
         setBillAvailable(billExists);
@@ -32,7 +32,7 @@ const Payhistory = () => {
   const handleSort = (type) => {
     setSortType(type);
     let sortedPayments = [...filteredPayments];
-    switch(type) {
+    switch (type) {
       case 'firstToLast':
         sortedPayments.sort((a, b) => new Date(a.date) - new Date(b.date));
         break;
@@ -54,19 +54,19 @@ const Payhistory = () => {
   };
 
 
- // Function to handle deletion of all slips
-//    const handleDeleteAllSlips = async () => {
-//      try {
-//        // Iterate through filteredSlips array and delete each slip
-//        for (const slip of filteredPayments) {
-//          await axios.delete(`http://localhost:5555/pay/${slip._id}`);
-//        }
-//        setPayments([]); // Clear the state after deletion
-//     } catch (error) {
-//        console.error('Error deleting slips:', error);
-//      }
-//    };
-  
+  // Function to handle deletion of all slips
+  //    const handleDeleteAllSlips = async () => {
+  //      try {
+  //        // Iterate through filteredSlips array and delete each slip
+  //        for (const slip of filteredPayments) {
+  //          await axios.delete(`http://localhost:5012/pay/${slip._id}`);
+  //        }
+  //        setPayments([]); // Clear the state after deletion
+  //     } catch (error) {
+  //        console.error('Error deleting slips:', error);
+  //      }
+  //    };
+
   // Calculate start and end index for current page
   const startIndex = (currentPage - 1) * 10;
   const endIndex = startIndex + 10;
@@ -74,7 +74,7 @@ const Payhistory = () => {
   return (
     <div className="accept">
       <div className='bg-[#DAF7A6]'>
-        <br/><div className="mt-[10px] ml-[650px] font-Spirax absolute text-[30pt] ">
+        <br /><div className="mt-[10px] ml-[650px] font-Spirax absolute text-[30pt] ">
           Payments
         </div>
         <BillLogo />
@@ -111,9 +111,9 @@ const Payhistory = () => {
             </div>
           </div>
         </div>
-        <br/><br/><br/><br/>
+        <br /><br /><br /><br />
       </div>
-      <br/>
+      <br />
       <div className="container mx-auto px-4 py-8 bg-[#fffec8]">
         {/* Dropdown for sorting */}
         <div className="flex justify-end mb-4">
@@ -142,17 +142,17 @@ const Payhistory = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{payment.User_ID}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{new Date(payment.date).toLocaleDateString()}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{payment.Value}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{payment.pmethod }</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{payment.pmethod}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-           {/* Button to delete all slips
+          {/* Button to delete all slips
         <button onClick={handleDeleteAllSlips} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 mr-2">
           Delete All Slips
         </button>  */}
         </div>
-        
+
         {/* Pagination */}
         <div className="flex justify-center mt-4">
           {Array.from({ length: Math.ceil(filteredPayments.length / 10) }, (_, i) => (

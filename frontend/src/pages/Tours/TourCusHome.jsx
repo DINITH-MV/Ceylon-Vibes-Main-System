@@ -13,7 +13,7 @@ const TourCusHome = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get("http://localhost:5555/tours")
+            .get("http://localhost:5012/tours")
             .then((response) => {
                 setTours(response.data.data);
                 setLoading(false);
@@ -26,7 +26,7 @@ const TourCusHome = () => {
 
     const handleTourClick = async (id) => {
         try {
-            await axios.put(`http://localhost:5555/tours/${id}/addview`);
+            await axios.put(`http://localhost:5012/tours/${id}/addview`);
             // Update the view count locally after successful increment
             setTours(tours.map(tour =>
                 tour._id === id ? { ...tour, views: tour.views + 1 } : tour

@@ -52,7 +52,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
     }
 
     try {
-      const response = await axios.get(`http://localhost:5555/api/products/${id}`);
+      const response = await axios.get(`http://localhost:5012/api/products/${id}`);
       setProductItem(response.data.data);
     } catch (error) {
       console.error("Error fetching Nuts category:", error);
@@ -73,7 +73,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
 
   // const handleClick = (id) => {
   //   if (id !== "") {
-  //       fetch(`http://localhost:5555/list`, {
+  //       fetch(`http://localhost:5012/list`, {
   //           method: "POST",
   //           body: JSON.stringify({ productId: id }),
   //           headers: {
@@ -237,7 +237,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                             <img
                               className="max-h-[280px] group-hover:scale-110 transition duration-300"
                               src={
-                                "http://localhost:5555/products/" +
+                                "http://localhost:5012/products/" +
                                 "/" +
                                 items.image
                               }
@@ -309,7 +309,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
                             <img
                               className="h-[290px] mt-[10px] p-[5px] transition duration-300 border rounded-[12px] bg-white"
                               src={
-                                "http://localhost:5555/products/" +
+                                "http://localhost:5012/products/" +
                                 items.image
                               }
                               alt=""
@@ -343,7 +343,7 @@ const ShopInside = ({ nuts, fetchNuts, snacks, fetchSnacks, sweetners, fetchSwee
           </section>
         </div>
       </motion.div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
