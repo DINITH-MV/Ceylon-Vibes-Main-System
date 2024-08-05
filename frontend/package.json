@@ -5,7 +5,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^4.31.1",
     "@clerk/themes": "^1.7.9",
-    "@material-tailwind/react": "^2.1.8",
+    "@material-tailwind/react": "^2.1.9",
     "@react-pdf/renderer": "^3.4.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -16,6 +16,7 @@
     "firebase": "^10.11.1",
     "flowbite": "^2.2.1",
     "framer-motion": "^11.0.3",
+    "frontend": "file:",
     "jspdf": "^2.5.1",
     "moment-timezone": "^0.5.45",
     "notistack": "^3.0.1",

@@ -254,7 +254,7 @@ const EventTable = ({ events, onDelete }) => {
               <td className="border px-4 py-2">{event.Time}</td>
               <td className="border px-4 py-2">{event.Location}</td>
               <td className="border px-4 py-2">{event.Category}</td>
-              <td className="border px-4 py-2 flex flex-col">
+              <td className="border px-4 py-2">
                 <button className="pl-2 pr-2 pt-2 pb-2 border-none font-semibold mb-2 transition-colors w-full 
                 duration-300 rounded-xl bg-[#FF0000] hover:bg-lightRed" onClick={() => onDelete(event._id)}>
                   Delete
