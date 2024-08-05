@@ -9,7 +9,7 @@ import Footer from '../../components/Footer/Footer';
 import TourLogo from '../../components/Tours/TOURLOGO';
 import RatingReviewForm from '../../components/ratings/createrating';
 
-const ShowTours = () => {
+const ShowTours1 = () => {
   const [tour, setTour] = useState({});
   const [loading, setLoading] = useState(false);
   const [showCreateBooking, setShowCreateBooking] = useState(false); // State to control the visibility of CreateBooking popup
@@ -96,5 +96,5 @@ const ShowTours = () => {
   );
 };
 
-export default ShowTours;
+export default ShowTours1;
 //showtours

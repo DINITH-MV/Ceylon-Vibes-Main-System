@@ -9,7 +9,7 @@ const currentTimeSL = moment().tz('Asia/Colombo');
 
 const currentDate = new Date().toISOString().split('T')[0];
 
-const ReceivedSlips = () => {
+const ReceivedSlips1 = () => {
   const [receivedSlips, setReceivedSlips] = useState([]);
 
   useEffect(() => {
@@ -183,4 +183,4 @@ const ReceivedSlips = () => {
     </div>
   );
 };
-export default ReceivedSlips;
+export default ReceivedSlips1;

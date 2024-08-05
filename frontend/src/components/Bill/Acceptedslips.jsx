@@ -3,7 +3,7 @@ import axios from 'axios';
 import BillLogo from '../../components/Bill/BillLogo';
 import { Link } from "react-router-dom";
 
-const AcceptedSlips = () => {
+const AcceptedSlips1 = () => {
   const [acceptedSlips, setAcceptedSlips] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortType, setSortType] = useState(""); // State to store current sort type
@@ -181,4 +181,4 @@ const AcceptedSlips = () => {
   );
 };
 
-export default AcceptedSlips;
+export default AcceptedSlips1;

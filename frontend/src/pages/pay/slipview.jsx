@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const ConnectedLinkComponent = ({ link }) => {
+const ConnectedLinkComponent1 = ({ link }) => {
   // Extract imageUrl from URL params
   const searchParams = new URLSearchParams(window.location.search);
   const imageUrl = searchParams.get('imageUrl');
@@ -48,4 +48,4 @@ const ConnectedLinkComponent = ({ link }) => {
   );
 };
 
-export default ConnectedLinkComponent;
+export default ConnectedLinkComponent1;

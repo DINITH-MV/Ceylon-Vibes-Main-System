@@ -3,7 +3,7 @@ import axios from 'axios';
 import BillLogo from '../../components/Bill/BillLogo';
 import { Link } from "react-router-dom";
 
-const Payhistory = () => {
+const Payhistory1 = () => {
   const [payments, setPayments] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortType, setSortType] = useState(""); // State to store current sort type
@@ -177,4 +177,4 @@ const Payhistory = () => {
   );
 };
 
-export default Payhistory;
+export default Payhistory1;

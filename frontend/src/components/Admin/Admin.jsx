@@ -1,4 +1,4 @@
-import { SearchBar } from "../Header/SearchBar"
+import SearchBar from "../Header/SearchBar"
 
 import Logo from "../Header/logo"
 import { useState } from "react";
