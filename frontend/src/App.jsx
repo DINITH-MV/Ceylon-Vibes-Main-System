@@ -222,6 +222,60 @@ const App = () => {
       <Route path="/sign-up" element={<SignedOut />} />
       <Route path="/profile" element={<UserProfilePage />} />
       <Route path="/paymentss" element={<Payhistory />} />
+
+      <Route path="admin" element={<Admin />} >
+        <Route path="dashboard" element={<Search />} />
+        <Route path="OrganicItems" element={<OrganicItems />} />
+        <Route path="AddCatagory" element={<AddCatagory fetchCatagories={fetchCatagories} />} />
+        <Route path="ItemsCatagory/:id" element={<ItemsCatagory />} />
+        <Route path="AddItemsCatagory/:id" element={<AddItemsCatagory fetchItemsCatagory={fetchItemsCatagory} />} />
+        <Route path="updateCatagory/:id" element={<UpdateCatagory />} />
+        <Route path="updateItemsCatagory/:id" element={<UpdateItemsCatagory />} />
+
+        <Route path="spa" element={<SpaCategory />} />
+        <Route path="spa-menu-edit-service" element={<MenuEditPage />} />
+        <Route path="classical-spa-rituals-edit-service" element={<ClassicalEditPage />} />
+        <Route path="spaAppointment" element={<AdminAppointment />} />
+        <Route path="ayurvedicSpaMenu/createMenu" element={<CreateMenu />} />
+        <Route path="classicalSpaRituals/createclassical" element={<CreateClassical />} />
+        <Route path="ayurvedicSpaMenu/edit/:id" element={<EditMenu />} />
+        <Route path="classicalSpaRituals/edit/:id" element={<EditClassical />} />
+        <Route path="ayurvedicSpaMenu/details/:id" element={<ShowMenu />} />
+        <Route path="classicalSpaRituals/details/:id" element={<ShowClassical />} />
+        <Route path="ayurvedicSpaMenu/delete/:id" element={<DeleteMenu />} />
+        <Route path="classicalSpaRituals/delete/:id" element={<DeleteClassical />} />
+        <Route path="generate-report" element={<SPAREPORTGENERATIONPAGE />} />
+
+        <Route path="articles" element={<AdminArticleList />} />
+        <Route path="update-article/:id" element={<UpdateArticleForm />} />
+        <Route path="add-article" element={<AddArticleForm />} />
+
+        <Route path="rentals" element={<AdminCarList />} />
+        <Route path="update-car/:id" element={<UpdateCarForm />} />
+        <Route path="add-car" element={<AddCarForm />} />
+        <Route path="admin-rent" element={<AdminRentList />} />
+
+        <Route path="events" element={<EventPage />} />
+        <Route path="addevent" element={<EventForm />} />
+        <Route path="editevent/:eventId" element={<UpdateEventForm />} />
+
+        <Route path="tours" element={<TourAdminHome />} />
+        <Route path="create" element={<CreateTours />} />
+        <Route path="tedit/:id" element={<EditTours />} />
+        <Route path="tdelete/:id" element={<DeleteTours />} />
+        <Route path="tdetails/:id" element={<ShowTours />} />
+        <Route path="bookings" element={<BookingAdminHome />} />
+        <Route path="bdelete/:id" element={<DeleteBooking />} />
+        <Route path="bdetails/:id" element={<ShowBookings />} />
+
+        <Route path="payment" element={<PaymentAdmin />} />
+        <Route path="paymentss" element={<Payhistory />} />
+        <Route path="acceptedslips" element={<AcceptedSlips />} />
+        <Route path="received" element={<ReceivedSlips />} />
+        <Route path="viewslip" element={<ConnectedLinkComponent />} />
+
+      </Route>
+      
     </Routes>
 
   );
