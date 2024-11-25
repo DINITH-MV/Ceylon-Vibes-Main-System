@@ -1,3 +1,5 @@
+
+<div align="center" ><b>Client side</b></div>
 <div align="center" ><b>CeylonVibes - Home</b></div>
 <br/>
  <img  align="center" src="home.jpeg" style="position: absolute;" target="_blank">
