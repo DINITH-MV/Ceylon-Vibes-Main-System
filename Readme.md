@@ -39,4 +39,32 @@
 <br/>
  <img  align="center" src="shopAdmin.png" style="position: absolute;" target="_blank">
 
+ <div align="center" ><b>Admin Panel - Rentals </b></div>
+<br/>
+ <img  align="center" src="AdminRentals.png" style="position: absolute;" target="_blank">
+
+ <div align="center" ><b>Admin Panel - Articles </b></div>
+<br/>
+ <img  align="center" src="AdminArticles.png" style="position: absolute;" target="_blank">
+
+ <div align="center" ><b>Admin Panel - Articles </b></div>
+<br/>
+ <img  align="center" src="AdminArticles.png" style="position: absolute;" target="_blank">
+
+ <div align="center" ><b>Admin Panel - Events </b></div>
+<br/>
+ <img  align="center" src="AdminEvents.png" style="position: absolute;" target="_blank">
+
+ <div align="center" ><b>Admin Panel - Events </b></div>
+<br/>
+ <img  align="center" src="AdminEvents.png" style="position: absolute;" target="_blank">
+
+ <div align="center" ><b>Admin Panel - SPA </b></div>
+<br/>
+ <img  align="center" src="AdminSpa.png" style="position: absolute;" target="_blank">
+
+ <div align="center" ><b>Admin Panel - Payments </b></div>
+<br/>
+ <img  align="center" src="AdminPayments.png" style="position: absolute;" target="_blank">
+
 This includes all the backend
