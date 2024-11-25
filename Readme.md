@@ -8,7 +8,7 @@
 
  <div align="center" ><b>Store Inside</b></div>
 <br/>
- <img  align="center" src="shopInside.png" style="position: absolute;" target="_blank">
+ <img  align="center" src="ShopInside.png" style="position: absolute;" target="_blank">
  
  <div align="center" ><b>Rentals</b></div>
 <br/>
