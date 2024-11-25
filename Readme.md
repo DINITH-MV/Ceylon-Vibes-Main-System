@@ -47,14 +47,6 @@
 <br/>
  <img  align="center" src="AdminArticles.png" style="position: absolute;" target="_blank">
 
- <div align="center" ><b>Admin Panel - Articles </b></div>
-<br/>
- <img  align="center" src="AdminArticles.png" style="position: absolute;" target="_blank">
-
- <div align="center" ><b>Admin Panel - Events </b></div>
-<br/>
- <img  align="center" src="AdminEvents.png" style="position: absolute;" target="_blank">
-
  <div align="center" ><b>Admin Panel - Events </b></div>
 <br/>
  <img  align="center" src="AdminEvents.png" style="position: absolute;" target="_blank">
