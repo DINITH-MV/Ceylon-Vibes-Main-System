@@ -37,7 +37,7 @@
  <div align="center" ><b>Admin Panel</b></div>
  <div align="center" ><b>Admin Panel - Organic Items </b></div>
 <br/>
- <img  align="center" src="shopAdmin.png" style="position: absolute;" target="_blank">
+ <img  align="center" src="AdminShop.png" style="position: absolute;" target="_blank">
 
  <div align="center" ><b>Admin Panel - Rentals </b></div>
 <br/>
